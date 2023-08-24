@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Funcionario extends Pessoa {
     
     private String numero_ctps;
-    private Calendar data_admmissao;
+    private Calendar data_admissao;
     private Calendar data_demissao;
 
     public Funcionario() {
@@ -31,11 +31,11 @@ public class Funcionario extends Pessoa {
     }
 
     public Calendar getData_admmissao() {
-        return data_admmissao;
+        return data_admissao;
     }
 
     public void setData_admmissao(Calendar data_admmissao) {
-        this.data_admmissao = data_admmissao;
+        this.data_admissao = data_admmissao;
     }
 
     public Calendar getData_demissao() {

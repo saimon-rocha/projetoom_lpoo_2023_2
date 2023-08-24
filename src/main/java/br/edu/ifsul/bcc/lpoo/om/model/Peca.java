@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table
+@Table(name = "tb_peca")
 public class Peca implements Serializable {
 
     @Id
@@ -67,6 +67,4 @@ public class Peca implements Serializable {
     public void setFornecedor(String fornecedor) {
         this.fornecedor = fornecedor;
     }
-    
-    
 }
