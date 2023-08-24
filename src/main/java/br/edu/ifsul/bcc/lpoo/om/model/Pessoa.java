@@ -1,33 +1,52 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.edu.ifsul.bcc.lpoo.om.model;
 
-import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
  *
- * @author Saimon AS Rocha
+ * @author telmo
  */
 @Entity
 @Table(name = "tb_pessoa")
-@Inheritance(strategy = Inheritance.Type.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo")
 public abstract class Pessoa implements Serializable {
+    
+    @Id
+    private String cpf;
+    
+    @Column(nullable = false, length = 100)
+    private String nome;
+    
+    @Column(nullable = false, length = 6)
+    private String senha;
+    
+    @Column(nullable = true)
+    @Temporal(TemporalType.DATE)    
+    private Calendar data_nascimento;
+    
+    @Column(nullable = true, length = 8)
+    private String cep;
+    
+    @Column(nullable = true, length = 100)
+    private String numero;
+    
+    @Column(nullable = true, length = 100)
+    private String complemento;
+
+    public Pessoa() {
+    }
 
     /**
      * @return the cpf
@@ -126,26 +145,6 @@ public abstract class Pessoa implements Serializable {
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
-
-    @Id
-    private String cpf;
-
-    @Column(nullable = false, length = 100)
-    private String nome;
-
-    @Column(nullable = false, length = 6)
-    private String senha;
-
-    @Column(nullable = true)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Calendar data_nascimento;
-
-    @Column(nullable = true, length = 8)
-    private String cep;
-
-    @Column(nullable = true, length = 100)
-    private String numero;
-
-    @Column(nullable = true, length = 100)
-    private String complemento;
+    
+    
 }
